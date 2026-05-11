@@ -1,0 +1,26 @@
+name: Run Ansible Playbook
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-playbook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Ansible
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install ansible
+
+      - name: Verify Ansible installation
+        run: ansible --version
+
+      - name: Run playbook
+        run: ansible-playbook playbook.yml
