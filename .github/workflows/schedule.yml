@@ -2,8 +2,7 @@ name: Run Ansible Playbook
 
 on:
   schedule:
-    # Runs daily at 10:30 PM IST (5:00 PM UTC)
-    - cron: "33 18 * * *"
+    - cron: "36 18 * * *"
 
   workflow_dispatch:
 
