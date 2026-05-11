@@ -1,0 +1,14 @@
+---
+- name: Get system date from localhost
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Get current system date
+      command: date
+      register: current_date
+
+    - name: Print system date
+      debug:
+        msg: "Current system date is: {{ current_date.stdout }}"
