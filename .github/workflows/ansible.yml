@@ -2,12 +2,11 @@ name: Run Ansible Playbook
 
 on:
   schedule:
-    - cron: "04 18 * * *"
+    - cron: "13 18 * * *"
+  workflow_dispatch: {}
 
 jobs:
   run-playbook:
-    if: github.ref == 'refs/heads/feature'
-
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +18,7 @@ jobs:
       - name: Install Ansible
         run: |
           python3 -m pip install --upgrade pip
-          pip install ansible
+          python3 -m pip install ansible
 
-      - name: Run playbook
-        run: ansible-playbook playbook.yml
+      - name: Run playbook (localhost)
+        run: ansible-playbook -i localhost, playbook.yml
