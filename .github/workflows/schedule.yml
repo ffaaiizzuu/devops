@@ -2,7 +2,7 @@ name: Run Ansible Playbook
 
 on:
   schedule:
-    - cron: "36 18 * * *"
+    - cron: "* * * * *"
 
   workflow_dispatch:
 
