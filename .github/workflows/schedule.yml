@@ -1,0 +1,34 @@
+name: Run Ansible Playbook
+
+on:
+  schedule:
+    # Runs daily at 10:30 PM IST (5:00 PM UTC)
+    - cron: "33 18 * * *"
+
+  workflow_dispatch:
+
+jobs:
+  run-playbook:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install Ansible
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install ansible
+
+      - name: Verify Ansible installation
+        run: ansible --version
+
+      - name: Run Ansible Playbook
+        run: ansible-playbook playbook.yml
