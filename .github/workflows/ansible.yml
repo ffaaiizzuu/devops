@@ -6,11 +6,18 @@ on:
 
 jobs:
   run-playbook:
+    if: github.ref == 'refs/heads/feature'
+
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Install Ansible
         run: |
