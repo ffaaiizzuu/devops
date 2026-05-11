@@ -2,7 +2,7 @@ name: Run Ansible Playbook
 
 on:
   schedule:
-    - cron: "20 17 * * *"
+    - cron: "29 17 * * *"
 
 jobs:
   run-playbook:
@@ -14,7 +14,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Checkout main branch
+      - name: Checkout feature branch
         uses: actions/checkout@v4
         with:
           ref: main
