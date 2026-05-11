@@ -2,7 +2,7 @@ name: Run Ansible Playbook
 
 on:
   schedule:
-    - cron: "20 18 * * *"
+    - cron: "22 18 * * *"
   workflow_dispatch: {}
 
 jobs:
@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout feature branch
+      - name: Checkout main branch
         uses: actions/checkout@v4
         with:
-          ref: feature
+          ref: main
 
       - name: Install Ansible
         run: |
