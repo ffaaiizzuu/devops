@@ -13,3 +13,7 @@ jobs:
         run: |
           echo "Current date and time:"
           date
+        run: |
+          echo "Current date and time:"
+          date -u
+
